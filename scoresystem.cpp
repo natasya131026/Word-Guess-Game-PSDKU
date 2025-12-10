@@ -37,3 +37,13 @@ void tampilkanPeringkat() {
         cout << "Belum ada skor yang tercatat. Mainkan game sekarang!\n";
     }
 }
+void simpanSkor(const string& nama, int skor) { 
+    ofstream fileSkor("highscores.txt", ios::app); 
+    if (fileSkor.is_open()) {
+        fileSkor << nama << " " << skor << "\n";
+        fileSkor.close();
+        cout << "Skor berhasil disimpan ke Papan Peringkat!\n";
+    } else {
+        cerr << "ERROR: Tidak dapat membuka file highscores.txt untuk menyimpan skor.\n";
+    }
+}
